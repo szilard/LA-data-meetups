@@ -18,5 +18,6 @@ d <- fromJSON(paste0("https://api.meetup.com/2/members?key=",api_key,
 
 nrow(d)
 
+
 ```
 
