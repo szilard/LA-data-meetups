@@ -21,5 +21,17 @@ d <- fromJSON(paste0("https://api.meetup.com/2/members?key=",api_key,
 
 d$name
 
+d <- fromJSON(paste0("https://api.meetup.com/2/profiles?key=",api_key,
+        "&group_urlname=",mm))$results
+
+d <- fromJSON(paste0("https://api.meetup.com/2/events?key=",api_key,
+        "&group_urlname=",mm))$results
+
+event <- 158904922
+
+d <- fromJSON(paste0("https://api.meetup.com/2/rsvps?key=",api_key,
+        "&event_id=", event, "&rsvp=yes"))$results
+
+
 ```
 
