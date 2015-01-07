@@ -1,0 +1,22 @@
+```{r}
+
+library(yaml)
+library(jsonlite)
+
+api_key <- yaml.load_file("meetup_api_key.yml")$api_key
+
+meetups <- c("Los-Angeles-R-Users-Group-Data-Science",
+  "LA-Data-Warehouse-Business-Intelligence-Analytics",
+  "Los-Angeles-Machine-Learning-Data-Science",
+  "Python-Data-Science-Los-Angeles",
+  "Data-Visualization-Los-Angeles-Data-Science")
+
+mm <- meetups[1]
+
+d <- fromJSON(paste0("https://api.meetup.com/2/members?key=",api_key,
+        "&group_urlname=",mm))$results
+
+nrow(d)
+
+```
+
