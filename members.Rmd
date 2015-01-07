@@ -13,11 +13,13 @@ meetups <- c("Los-Angeles-R-Users-Group-Data-Science",
 
 mm <- meetups[1]
 
+n <- fromJSON(paste0("https://api.meetup.com/2/members?key=",api_key,
+        "&group_urlname=",mm))$meta$total_count
+
 d <- fromJSON(paste0("https://api.meetup.com/2/members?key=",api_key,
-        "&group_urlname=",mm))$results
+        "&group_urlname=",mm,"&page=200&offset=0",0))$results
 
-nrow(d)
-
+d$name
 
 ```
 
